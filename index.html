@@ -10,7 +10,7 @@
             text-align: center;
             margin: 50px;
         }
-        #question, #answer {
+        #category, #question, #answer {
             font-size: 24px;
             margin: 20px;
             display: none;
@@ -25,25 +25,32 @@
 
     <h1>Final Jeopardy</h1>
     <button id="nextButton">Start</button>
+    <div id="category"></div>
     <div id="question"></div>
     <div id="answer"></div>
 
     <script>
+        const categoryText = "World Geography";
         const questionText = "What is the capital of France?";
         const answerText = "The capital of France is Paris.";
 
         let state = 0;
         const button = document.getElementById("nextButton");
+        const categoryDiv = document.getElementById("category");
         const questionDiv = document.getElementById("question");
         const answerDiv = document.getElementById("answer");
 
         button.addEventListener("click", () => {
             if (state === 0) {
-                questionDiv.textContent = questionText;
-                questionDiv.style.display = "block";
+                categoryDiv.textContent = "Category: " + categoryText;
+                categoryDiv.style.display = "block";
                 button.textContent = "Next";
                 state++;
             } else if (state === 1) {
+                questionDiv.textContent = questionText;
+                questionDiv.style.display = "block";
+                state++;
+            } else if (state === 2) {
                 answerDiv.textContent = answerText;
                 answerDiv.style.display = "block";
                 button.style.display = "none"; // Hide the button after revealing the answer
