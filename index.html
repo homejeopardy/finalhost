@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Jeopardy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #question, #answer {
+            font-size: 24px;
+            margin: 20px;
+            display: none;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Final Jeopardy</h1>
+    <button id="nextButton">Start</button>
+    <div id="question"></div>
+    <div id="answer"></div>
+
+    <script>
+        const questionText = "What is the capital of France?";
+        const answerText = "The capital of France is Paris.";
+
+        let state = 0;
+        const button = document.getElementById("nextButton");
+        const questionDiv = document.getElementById("question");
+        const answerDiv = document.getElementById("answer");
+
+        button.addEventListener("click", () => {
+            if (state === 0) {
+                questionDiv.textContent = questionText;
+                questionDiv.style.display = "block";
+                button.textContent = "Next";
+                state++;
+            } else if (state === 1) {
+                answerDiv.textContent = answerText;
+                answerDiv.style.display = "block";
+                button.style.display = "none"; // Hide the button after revealing the answer
+            }
+        });
+    </script>
+
+</body>
+</html>
