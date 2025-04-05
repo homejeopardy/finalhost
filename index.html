@@ -64,9 +64,9 @@
     </div>
 
     <script>
-        const categoryText = "World Geography";
-        const questionText = "What is the capital of France?";
-        const answerText = "The capital of France is Paris.";
+        const categoryText = "American History";
+        const questionText = "This U.S. document, ratified in 1788, begins with the words 'We the People.'";
+        const answerText = "The U.S. Constitution.";
 
         let state = 0;
         const button = document.getElementById("nextButton");
@@ -87,7 +87,7 @@
             } else if (state === 2) {
                 answerDiv.textContent = answerText;
                 answerDiv.classList.add("show");
-                button.style.display = "none"; // Hide button after revealing the answer
+                button.style.display = "none";
             }
         });
     </script>
